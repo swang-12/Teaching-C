@@ -1,6 +1,6 @@
 // Author:		Stanley Wang
 // Created:		13/10/12
-// Modified:	13/10/12
+// Modified:	14/10/12
 
 #include <stdio.h>
 
@@ -8,34 +8,108 @@ int main (int argc, char *argv[]) {
 
 	int inputNum;
 	
-	printf("I HATE THIS NUMBER: ");
-	scanf("%d", &inputNum);
-	printf("A Viking would say: ");
+	do {
 	
-	if (inputNum <= 499) {
+		printf("I HATE THIS NUMBER: ");
+		scanf("%d", &inputNum);
+		printf("Ryan Sullivan would say ");
 	
-		if (inputNum % 2 == 0) {
-			//checks for even
-			printf("ock");
-			
-			if (inputNum % 10 == 0) {
-				printf("-noc");
+		if (inputNum <= 499) {
+			if (inputNum % 2 == 0) {
+				//checks for even
+				printf("ock");		
+					if (inputNum % 10 == 0) {
+					//integers of 10
+						printf("-noc ");
+					} else {
+						printf("-op ");
+					}
 			} else {
-				printf("-op");
+				//checks for odd
+				printf("virch ");
 			}
-		
-		} else {
-			//checks for odd
-			printf("virch");
+				while ((inputNum < 500) && (inputNum >= 400)) {
+						inputNum = inputNum - 10;
+						printf ("ok-bozz ");
+				} 
+				while ((inputNum < 400) && (inputNum >= 300)) {
+						inputNum = inputNum - 10;
+						printf ("ok-doss ");
+			}
+				while ((inputNum < 300) && (inputNum >= 200)) {
+						inputNum = inputNum - 10;
+						printf ("ok-coss ");
+			}
+				while ((inputNum < 200) && (inputNum >= 100)) {
+						inputNum = inputNum - 10;
+						printf ("ok-ross ");
+			}
 			
+			if (inputNum >=10) {
+				if (inputNum >=20) {
+					if (inputNum >=30) {
+						if (inputNum >=40) {
+							if (inputNum >=50) {
+								if (inputNum >=60) {
+									if (inputNum >=70) {
+										if (inputNum >=80) {
+											if (inputNum >=90) {
+												printf("poss ");
+											}	
+										printf("qoss ");
+										}	
+									printf("sozz ");
+									}	
+								printf("goss ");
+								}
+							printf("foss ");
+							}	
+						printf("bozz ");
+						}	
+					printf("doss ");
+					}	
+				printf("coss ");	
+				}	
+			printf("ross ");
+			}
+			
+			if (inputNum % 10 == 9) {
+				printf("leack");
+			}
+			if (inputNum % 10 == 8) {
+				printf("meep");
+			}
+			if (inputNum % 10 == 7) {
+				printf("dook");
+			}
+			if (inputNum % 10 == 6) {
+				printf("deek");
+			}
+			if (inputNum % 10 == 5) {
+				printf("lopo");
+			}
+			if (inputNum % 10 == 4) {
+				printf("drog");
+			}
+			if (inputNum % 10 == 3) {
+				printf("cota");
+			}
+			if (inputNum % 10 == 2) {
+				printf("rotf");
+			}
+			if (inputNum % 10 == 1) {
+				printf("grot");
+			}
+			if (inputNum % 10 == 0) {
+				printf("nokk");
+			}
+		} else {
+			printf("DUHH");
 		}
-	} else {
-		printf("DUHH");
-	}
-	
+		printf("\n");
+	} while (1);
 	
 	return 0;
-
 }
 
 /* 	0 and below	=	nokk
