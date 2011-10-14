@@ -8,7 +8,7 @@ int main (int argc, char *argv[]) {
 
 	int inputNum;
 	
-	do {
+	while (1) {
 	
 		printf("I HATE THIS NUMBER: ");
 		scanf("%d", &inputNum);
@@ -28,21 +28,21 @@ int main (int argc, char *argv[]) {
 				//checks for odd
 				printf("virch ");
 			}
-				while ((inputNum < 500) && (inputNum >= 400)) {
-						inputNum = inputNum - 10;
-						printf ("ok-bozz ");
-				} 
-				while ((inputNum < 400) && (inputNum >= 300)) {
-						inputNum = inputNum - 10;
-						printf ("ok-doss ");
+			while ((inputNum < 500) && (inputNum >= 400)) {
+					inputNum = inputNum - 10;
+					printf ("ok-bozz ");
+			} 
+			while ((inputNum < 400) && (inputNum >= 300)) {
+					inputNum = inputNum - 10;
+					printf ("ok-doss ");
 			}
-				while ((inputNum < 300) && (inputNum >= 200)) {
-						inputNum = inputNum - 10;
-						printf ("ok-coss ");
+			while ((inputNum < 300) && (inputNum >= 200)) {
+					inputNum = inputNum - 10;
+					printf ("ok-coss ");
 			}
-				while ((inputNum < 200) && (inputNum >= 100)) {
-						inputNum = inputNum - 10;
-						printf ("ok-ross ");
+			while ((inputNum < 200) && (inputNum >= 100)) {
+					inputNum = inputNum - 10;
+					printf ("ok-ross ");
 			}
 			
 			if (inputNum >=10) {
@@ -56,21 +56,21 @@ int main (int argc, char *argv[]) {
 											if (inputNum >=90) {
 												printf("poss ");
 											}	
-										printf("qoss ");
+											printf("qoss ");
 										}	
-									printf("sozz ");
+										printf("sozz ");
 									}	
-								printf("goss ");
+									printf("goss ");
 								}
-							printf("foss ");
+								printf("foss ");
 							}	
-						printf("bozz ");
+							printf("bozz ");
 						}	
-					printf("doss ");
+						printf("doss ");
 					}	
-				printf("coss ");	
+					printf("coss ");	
 				}	
-			printf("ross ");
+				printf("ross ");
 			}
 			
 			if (inputNum % 10 == 9) {
@@ -107,7 +107,7 @@ int main (int argc, char *argv[]) {
 			printf("DUHH");
 		}
 		printf("\n");
-	} while (1);
+	}
 	
 	return 0;
 }
