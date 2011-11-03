@@ -10,13 +10,13 @@ int main (int argc, char *argv[]) {
 	int num2 = 0;
 	
 	// prints out a message and user inputs number in
-	printf("What would you like me to count up to?");
+	printf("What would you like me to count up to?:");
 	scanf("%d", &num2);
 	
 	//continues counting by 1 until it reaches the input number and prints each number
 	while (num1 < num2) {
 		++num1;
-		printf("%d \n", num1 );
+		printf("%d \n", num1);
 	}
 	
 	return 0;
