@@ -1,8 +1,9 @@
 // Author:		Stanley Wang
 // Created:		10/25/11
-// Modified:	10/25/11
+// Modified:	11/04/11
 
 #include <stdio.h>
+#include <math.h>
 
 void main1 ();
 void main2 ();
@@ -14,15 +15,11 @@ void main7 ();
 void main8 ();
 void main9 ();
 void main10 ();
+int powint (int num, int exp);
 
 int main (int argc, char *argv[]) {
-	main1();
-	main2();
 	main3();
-	main4();
-	main5();
 	main6();
-	main7();
 	main8();
 	main9();
 	return 0;
@@ -66,18 +63,18 @@ void main3 () {
 
 void main4 () {
 	//Find the largest palindrome made from the product of two 3-digit numbers.
-	int numberOne = 100;
-	int numberTwo = 100;
+	int numberOne = 99;
+	int numberTwo = 99;
 	int product = 0;
 	int productTrial = 0;
 	
 	while (numberOne < 1000) {
+		numberOne++;
+		numberTwo++;
+		product = numberOne * numberTwo;
 		if (product <= productTrial) {
 			product = productTrial;
 		}
-		product = numberOne * numberTwo;
-		numberOne++;
-		numberTwo++;
 	}
 	printf("Function 4 = %d\n", product);
 }
@@ -131,35 +128,54 @@ void main7 () {
 }
 
 void main8 () {
-	//Discover the largest product of five consecutive digits in the 1000-digit number.	
+	//Discover the largest product of five consecutive digits in the 1000-digit number.
+	int numberOne = 0;
+	int numberTwo = 0;
+	int numberThree = 0;
+	int numberFour = 0;
+	int numberFive = 0;
+	int product = 0;
+	int productTrial = 0;
 	
+	while (numberOne < 1000) {
+		numberOne++;
+		numberTwo = numberOne - 1;
+		numberThree = numberTwo - 1;
+		numberFour = numberThree - 1;
+		numberFive = numberFour - 1;
+		if (product <= productTrial) {
+			product = productTrial;
+		}
+		product = numberOne * numberTwo * numberThree * numberFour * numberFive;
+	}
+	printf("Function 8 = %d %d\n", product, productTrial);
 }
 
 void main9 () {
 	//Find the only Pythagorean triplet, {a, b, c}, for which a + b + c = 1000.	
-	int a = 0;
-	int b = 0;
-	int c = 0;
+	int a = 1;
+	int b = 1;
+	int c = 998;
 	
-	while ((a + b + c) != 56) { 
-		a++;
-		while (((int)((a^2) + (b^2))^(.5)) != c) {
-			b++;
-			break;
-			//c = (int)((int)((a^2) + (b^2))^(.5));
-			//printf("%d %d %d \n", a, b, c);
-		}
+	while (powint(a,2) + powint(b,2) <= powint(c,2)) {
+		c--;
+		b++;
+			if (c <= 1) {
+				a++;
+				b = 1;
+				c = 1000 - a - b;
+			}
 	}
+	printf("Function 9: %d + %d + %d = %d\n", a, b, c, a+b+c);
+	printf("%d %d %d", powint(a,2), powint(b,2), powint(c,2));
 }
 
 void main10 () {
 	//Calculate the sum of all the primes below two million.
 	int numberCount  = 2;
 	int numberDivideBy = 2;
-	int sumPrime = 1;
 	int primeCount = 1;
-	
-	printf("Function 7:\n");
+	int sumPrime;
 	
 	while (numberCount < 2000000) {
 		while (numberDivideBy < numberCount) {
@@ -168,12 +184,17 @@ void main10 () {
 			} else if (numberCount == numberDivideBy) {
 				sumPrime += numberCount;
 				primeCount++;
-				printf(" HELLO %d %d\n", sumPrime, primeCount);
+				printf(" HELLO %d %d\n", numberCount, primeCount);
 			}
 			numberDivideBy++;
 		}
-		printf("%d %d\n", sumPrime, primeCount);
+		printf("Funtion 10: %d %d\n", numberCount, primeCount);
 		numberCount++;
 		numberDivideBy = 2;	
 	}
 }
+
+int powint (int num, int exp) {
+	return (int)pow(num, exp);
+}
+
