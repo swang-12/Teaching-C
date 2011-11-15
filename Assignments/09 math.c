@@ -1,6 +1,6 @@
 // Author:		Stanley Wang
 // Created:		10/25/11
-// Modified:	11/04/11
+// Modified:	11/15/11
 
 #include <stdio.h>
 #include <math.h>
@@ -18,10 +18,7 @@ void main10 ();
 int powint (int num, int exp);
 
 int main (int argc, char *argv[]) {
-	main3();
 	main6();
-	main8();
-	main9();
 	return 0;
 }
 
@@ -57,8 +54,38 @@ void main2 () {
 
 void main3 () {
 	//Find the largest prime factor of a composite number.
-	//input number
+	int numberComposite;
+	int numberDivide = 1;
+	int numberDivideBy = 1;
+	int numberPrime = 1;
+	printf("Enter a composite number. If you know what that is: ");
+	scanf("%d", &numberComposite);
 	
+	while (numberDivide < numberComposite) {
+		if (numberComposite % numberDivide == 0) {
+			while (numberDivideBy < numberDivide) {
+			numberDivideBy++;
+			
+				if (numberDivide % numberDivideBy == 0) {
+					if (numberDivideBy == numberDivide) {
+						numberPrime = numberDivideBy;
+						numberDivideBy = 1;
+					}
+					break;
+				}
+			}
+		}
+		if (numberDivideBy == numberDivide) {
+			numberDivideBy = 1;
+		}
+		numberDivide++;
+	}
+	
+	if (numberPrime == 1) {
+		printf("That number is not composite, ahh freshmen...\n");
+	} else {
+		printf("Funtion 3 = %d\n", numberPrime);
+	}
 }
 
 void main4 () {
@@ -101,7 +128,7 @@ void main5 () {
 }
 
 void main6 () {
-	//What is the difference between the sum of the squares and the square of the sums?
+	//What is the difference between the sum of the squares and the square of the sums for all natural numbers up until 150?
 	
 }
 
@@ -128,27 +155,43 @@ void main7 () {
 }
 
 void main8 () {
-	//Discover the largest product of five consecutive digits in the 1000-digit number.
-	int numberOne = 0;
-	int numberTwo = 0;
-	int numberThree = 0;
-	int numberFour = 0;
-	int numberFive = 0;
-	int product = 0;
-	int productTrial = 0;
+	// Print the numbers 1 to 200 in base 2,3,4,5,6,7,8,9,10,11,12,13,14,15
+	int numberCount = 1;
+	int numberCountReset = numberCount;
+	int numberCountPower = 0;
+	int numberBase = 2;
+	int numberPrint = 0;
 	
-	while (numberOne < 1000) {
-		numberOne++;
-		numberTwo = numberOne - 1;
-		numberThree = numberTwo - 1;
-		numberFour = numberThree - 1;
-		numberFive = numberFour - 1;
-		if (product <= productTrial) {
-			product = productTrial;
+	printf("Function 8 = \n");
+	
+	while (numberCount <= 200) {
+		while (numberBase <= 15) {
+		
+			numberCountReset = numberCount;
+			printf("%d = ", numberCountReset);
+			while (numberCountReset >= powint(numberBase, numberCountPower)) {
+				numberCountPower++;
+			}
+			
+			//this subtracts one so the numberbase to the numbercountpower would still be less than numbercount
+			numberCountPower--;
+			
+			while (numberCountPower >= 0) {
+			
+				while ((int)(numberCountReset / powint(numberBase, numberCountPower) > 0)) {
+					numberPrint++;
+					numberCountReset -= powint(numberBase, numberCountPower); 
+				}
+				printf("%d", numberPrint);
+				numberCountPower--;
+				numberPrint = 0;
+			}
+			printf(" in base %d\n", numberBase);
+			numberBase++;
 		}
-		product = numberOne * numberTwo * numberThree * numberFour * numberFive;
+		numberBase = 2;
+		numberCount++;
 	}
-	printf("Function 8 = %d %d\n", product, productTrial);
 }
 
 void main9 () {
@@ -157,7 +200,7 @@ void main9 () {
 	int b = 1;
 	int c = 998;
 	
-	while (powint(a,2) + powint(b,2) <= powint(c,2)) {
+	while (powint(a,2) + powint(b,2) != powint(c,2)) {
 		c--;
 		b++;
 			if (c <= 1) {
@@ -166,32 +209,29 @@ void main9 () {
 				c = 1000 - a - b;
 			}
 	}
-	printf("Function 9: %d + %d + %d = %d\n", a, b, c, a+b+c);
-	printf("%d %d %d", powint(a,2), powint(b,2), powint(c,2));
+	printf("Function 9: (%d, %d, %d,)\n", a, b, c);
 }
 
 void main10 () {
 	//Calculate the sum of all the primes below two million.
-	int numberCount  = 2;
-	int numberDivideBy = 2;
-	int primeCount = 1;
-	int sumPrime;
+	int numberCount  = 1;
+	int numberDivideBy;
+	int sumPrime = 2;
 	
-	while (numberCount < 2000000) {
-		while (numberDivideBy < numberCount) {
-			if (numberCount % numberDivideBy == 0) {
-				break;
-			} else if (numberCount == numberDivideBy) {
+	while (numberCount < 2000) {
+		//adding 2 because all even are not prime besides 2
+		numberCount += 2;
+		numberDivideBy = 2;	
+		while (numberDivideBy <= numberCount) {
+			if (numberCount == numberDivideBy) {
 				sumPrime += numberCount;
-				primeCount++;
-				printf(" HELLO %d %d\n", numberCount, primeCount);
+			} else if (numberCount % numberDivideBy == 0) {
+				break;
 			}
 			numberDivideBy++;
 		}
-		printf("Funtion 10: %d %d\n", numberCount, primeCount);
-		numberCount++;
-		numberDivideBy = 2;	
 	}
+	printf("Function 10: %d\n", sumPrime);
 }
 
 int powint (int num, int exp) {
