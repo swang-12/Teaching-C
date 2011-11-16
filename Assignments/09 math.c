@@ -1,6 +1,6 @@
 // Author:		Stanley Wang
 // Created:		10/25/11
-// Modified:	11/15/11
+// Modified:	11/16/11
 
 #include <stdio.h>
 #include <math.h>
@@ -18,7 +18,16 @@ void main10 ();
 int powint (int num, int exp);
 
 int main (int argc, char *argv[]) {
+	main1();
+	main2();	
+	main3();	
+	main4();
+	main5();
 	main6();
+	main7();
+	main8();
+	main9();
+	main10();
 	return 0;
 }
 
@@ -129,6 +138,25 @@ void main5 () {
 
 void main6 () {
 	//What is the difference between the sum of the squares and the square of the sums for all natural numbers up until 150?
+	int numberCount = 1;
+	int numberCounter = 1;
+	int numberCountSum = 0;
+	int numberCountSquare = 0;
+	
+	printf("Function 6 = ");
+	
+	while (numberCount <= 150) {
+		while (numberCounter <= numberCount) {
+			numberCountSum += numberCounter;
+			numberCountSquare += powint(numberCounter,2);
+			numberCounter++;
+		}
+		printf("%d\n", (numberCountSquare - powint(numberCountSum,2)));
+		numberCountSum = 0;
+		numberCountSquare = 0;
+		numberCounter = 0;
+		numberCount++;
+	}
 	
 }
 
@@ -218,10 +246,10 @@ void main10 () {
 	int numberDivideBy;
 	int sumPrime = 2;
 	
-	while (numberCount < 2000) {
+	while (numberCount < 2000000) {
 		//adding 2 because all even are not prime besides 2
 		numberCount += 2;
-		numberDivideBy = 2;	
+		numberDivideBy = 2;
 		while (numberDivideBy <= numberCount) {
 			if (numberCount == numberDivideBy) {
 				sumPrime += numberCount;
